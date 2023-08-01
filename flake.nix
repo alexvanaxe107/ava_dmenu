@@ -6,6 +6,8 @@
 
   outputs = { self, nixpkgs }:
     let
+
+      lastModifiedDate = self.lastModifiedDate or self.lastModified or "19700101";
       # Generate a user-friendly version number.
       version = builtins.substring 0 8 lastModifiedDate;
 
@@ -49,6 +51,11 @@
         {
           inherit (nixpkgsFor.${system}) dmenu;
         });
+
+      # The default package for 'nix build'. This makes sense if the
+      # flake provides only one package or there is a clear "main"
+      # package.
+      defaultPackage = forAllSystems (system: self.packages.${system}.dmenu);
     };
 
 }
