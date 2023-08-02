@@ -27,7 +27,7 @@
       overlay = final: prev: {
 
         dmenu = with final; stdenv.mkDerivation rec {
-          pname = "ava-dmenu-5.1.2";
+          pname = "ava-dmenu-5.2.0";
           inherit version;
 
           src = ./.;
