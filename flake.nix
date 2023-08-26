@@ -1,9 +1,6 @@
 {
   description = "My version of dmenu. TODO: Remake it on nix way.";
 
-  inputs.nixpkgs.url = "nixpkgs/nixos-23.05";
-
-
   outputs = { self, nixpkgs }:
     let
 
